@@ -1,10 +1,19 @@
 import re
 
-"""
-    Name : class Teloperator     
-"""
+
+
+# It takes a number and a dictionary of patterns and returns the prefix of the number that is in the
+# dictionary.
 class Teloperator:
     def __init__(self, name, data, number):
+        """
+        The function __init__() is a special function in Python classes. It is run as soon as an object of a
+        class is instantiated. The method is useful to do any initialization you want to do with your object
+        
+        :param name: The name of the file
+        :param data: a list of lists, each list is a row of data
+        :param number: The Pattern number
+        """
         self.name = name
         self.data = data
         self.number = number
@@ -12,13 +21,28 @@ class Teloperator:
 # return : dic
 
     def patternSearch(self, pattern_number):
+        """
+        It takes a pattern number as an argument and returns a dictionary with the name of the pattern,
+        the pattern number, and the pattern itself
+        
+        :param pattern_number: The pattern number you want to search for
+        :return: A dictionary with the name, key, and value of the pattern.
+        """
         for key, val in self.data.items():
             if pattern_number == key:
                 return {'name': self.name, 'key': key, 'val': val}
-# Parse input number to find the longest pattern in the operator class number list
-# return:str
 
     def findPrefix(self):
+        """
+        It takes the number and iterates through it, adding each digit to the pattern_number variable. 
+        
+        Then it searches for the pattern_number in the dictionary. 
+        
+        If it finds a match, it returns the result. 
+        
+        If it doesn't find a match, it continues to the next digit
+        :return: The prefix of the number that is in the dictionary.
+        """
         pattern_number = ''
         result = ''
         for str in [*self.number]:
@@ -29,10 +53,14 @@ class Teloperator:
         return result
 
 
-# This function looking for cheapest operator to offer to user
-# operator_list: is list of Teloperator class
-# return : dic like  {'name': str, 'key': str, 'val': float}
+
 def findCheaperOperator(operator_list):
+    """
+    It takes a list of operators and returns the cheapest offer for the given prefix
+    
+    :param operator_list: list of operators
+    :return: A dictionary with the cheapest operator and the cost of the call.
+    """
     offer_list = []
     for operator in operator_list:
         result = operator.findPrefix()
@@ -50,6 +78,10 @@ def findCheaperOperator(operator_list):
 # this function have got and validate the user input number
 # return: str
 def enterYourNumber():
+    """
+    It takes a phone number as input, validates it, and returns it.
+    :return: the dialed_number variable.
+    """
     print(chr(27) + "[2J")
     WARNING = '\033[93m'
     ENDC = '\033[0m'
@@ -70,6 +102,13 @@ def enterYourNumber():
 # Function for unit test because the terminal event is not working in unit test
 # return:str
 def yourNumber(number):
+    """
+    If the number is a valid phone number and is 11 characters long, remove the + sign and return the
+    number
+    
+    :param number: The phone number you want to send the message to
+    :return: The number is being returned.
+    """
     validate_phone_number_pattern = "^\\+?[1-9][0-9]{7,14}$"
     if re.search(validate_phone_number_pattern, number) is not None and len(number) == 11:
         number = number.replace('+', '')
