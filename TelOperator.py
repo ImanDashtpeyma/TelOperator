@@ -21,7 +21,6 @@ class Teloperator:
         """
         It takes a pattern number as an argument and returns a dictionary with the name of the pattern,
         the pattern number, and the pattern itself
-
         :param pattern_number: The pattern number you want to search for
         :return: A dictionary with the name, key, and value of the pattern.
         """
@@ -92,7 +91,6 @@ def yourNumber(number):
     """
     If the number is a valid phone number and is 11 characters long, remove the + sign and return the
     number
-
     :param number: The phone number you want to send the message to
     :return: The  str number is being returned.
     """
