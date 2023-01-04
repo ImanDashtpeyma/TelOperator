@@ -43,5 +43,4 @@ Instructions
 ● Do not use a database or create a GUI.
 ● Plus is given to efficient solutions.
 ● The code should have unit test(s).
-● Deliver to us via online repository (give access to erik.ohlzon@alatest.com).
-● Please include (in the repo) a current CV listing any recent or relevant code examples.
+
